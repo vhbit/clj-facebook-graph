@@ -11,7 +11,7 @@
   (:use [clj-facebook-graph.helper :only [wrap-exceptions facebook-base-url facebook-fql-base-url]]
         [clj-facebook-graph.auth :only [wrap-facebook-access-token]]
         [clj-facebook-graph.error-handling :only [wrap-facebook-exceptions]]
-        [clojure.data.json :only [read-json]] 
+        [clojure.data.json :only [read-json]]
         [clj-oauth2.client :only [wrap-oauth2]])
   (:require [clj-http.client :as client]))
 
@@ -23,7 +23,7 @@
   (here \"friends\"), you can also provide three or more
   keywords (or strings) like in the case of 'https://graph.facebook.com/me/videos/uploaded' for example."
   (fn [req]
-    (let [{:keys [url]} req]    
+    (let [{:keys [url]} req]
       (if (vector? url)
         (let [url-parts-as-str (map #(if (keyword? %) (name %) (str %)) url)
               url (apply str (interpose "/" (conj url-parts-as-str facebook-base-url)))]

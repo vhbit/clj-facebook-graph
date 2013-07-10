@@ -1,5 +1,5 @@
 (ns clj-facebook-graph.auth
-  (:use [clj-facebook-graph.helper :only [facebook-base-url facebook-fql-base-url]] 
+  (:use [clj-facebook-graph.helper :only [facebook-base-url facebook-fql-base-url]]
         [clojure.data.json :only [read-json]])
   (:require [clj-oauth2.client :as oauth2]
             [clojure.string :as str])
@@ -37,7 +37,7 @@
 
 (defn- oauth2-access-token []
   (assoc *facebook-auth*
-    :query-param (:access-query-param facebook-oauth2-endpoint)))
+    :query-params (:access-query-param facebook-oauth2-endpoint)))
 
 (defn wrap-facebook-access-token [client]
   "Ring-style middleware to add the Facebook access token to the request, when it is found in the thread bounded *facebook-auth* variable.

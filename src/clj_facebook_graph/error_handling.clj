@@ -47,6 +47,5 @@
       (if (or (not (clojure.core/get req :throw-exceptions true))
               (not= status 400))
         resp
-        (throw (let [resp (assoc resp :body (read-json (:body resp)))]
+        (throw (let [resp (assoc resp :body (read-json (slurp (:body resp))))]
                  (FacebookGraphException. (identify-facebook-error resp))))))))
-
