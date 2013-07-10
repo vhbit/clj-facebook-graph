@@ -5,7 +5,7 @@
                  [ring/ring-core "1.2.0"]
                  [clj-http "0.7.4"]
                  [clj-oauth2 "0.2.0"]]
-  :dev-dependencies [[ring/ring-devel "1.2.0"]
-                     [ring/ring-jetty-adapter "1.2.0"]
-                     [compojure "1.1.5"]]
+  :profiles {:dev {:dependencies [[ring/ring-devel "1.2.0"]
+                                 [ring/ring-jetty-adapter "1.2.0"]
+                                 [compojure "1.1.5"]]}}
   :aot [clj-facebook-graph.FacebookGraphException])
